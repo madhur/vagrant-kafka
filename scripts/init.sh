@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "installing JDK and Kafka..."
+
+su -c "yum -y install java-1.8.0-openjdk-devel wget net-tools"
 
 echo "downloading kafka...$KAFKA_VERSION"
 
@@ -8,12 +11,10 @@ if [ ! -f  $KAFKA_TARGET/$KAFKA_NAME.tgz ]; then
    wget -O "$KAFKA_TARGET/$KAFKA_NAME.tgz" https://archive.apache.org/dist/kafka/"$KAFKA_VERSION/$KAFKA_NAME.tgz"
 fi
 
-echo "installing JDK and Kafka..."
 
-su -c "yum -y install java-1.8.0-openjdk-devel"
 
 #disabling iptables
-/etc/init.d/iptables stop
+#/etc/init.d/iptables stop
 
 if [ ! -d $KAFKA_NAME ]; then 
    tar -zxvf $KAFKA_TARGET/$KAFKA_NAME.tgz
