@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "installing JDK and Kafka..."
 
-su -c "yum -y install java-1.8.0-openjdk-devel wget net-tools"
+su -c "yum -y install java-11-openjdk-devel wget net-tools"
 
 echo "downloading kafka...$KAFKA_VERSION"
 
