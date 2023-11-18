@@ -29,6 +29,14 @@ Vagrant.configure("2") do |config|
       s.vm.network "private_network", ip: "192.168.56.#{i+1}"
       s.vm.provision "shell", run: "always", path: "scripts/zookeeper.sh", args:"#{i}", privileged: false, env: vars
       s.vm.provision "shell", run: "always", path: "scripts/broker.sh", args:"#{i}", privileged: false, env: vars
+      
+      s.trigger.after :up do |trigger|
+        trigger.only_on = ["zookeeper3"] 
+        trigger.run = {path: "scripts/zk.sh"}
+      end
     end
   end
+
+
+
 end
