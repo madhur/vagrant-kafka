@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
   as_str = vars.map{|k,str| ["export #{k}=#{str.gsub '$', '\$'}"] }.join("\n")
 
   # common provisioning for all 
-  config.vm.provision "shell", path: "scripts/hosts-file-setup.sh", env: vars
+  #config.vm.provision "shell", path: "scripts/hosts-file-setup.sh", env: vars
   config.vm.provision "shell", inline: "echo \"#{as_str}\" > /etc/profile.d/kafka_vagrant_env.sh", run: "always"
   config.vm.provision "shell", path: "scripts/init.sh", env: vars
  
