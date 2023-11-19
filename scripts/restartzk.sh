@@ -1,0 +1,6 @@
+vagrant ssh zookeeper4 -c '/home/vagrant/kafka_2.12-2.8.0/bin/zookeeper-server-stop.sh'
+vagrant ssh zookeeper4 -c '/vagrant/scripts/zookeeper.sh'
+vagrant ssh zookeeper5 -c '/home/vagrant/kafka_2.12-2.8.0/bin/zookeeper-server-stop.sh'
+vagrant ssh zookeeper5 -c '/vagrant/scripts/zookeeper.sh'
+vagrant ssh zookeeper6 -c '/home/vagrant/kafka_2.12-2.8.0/bin/zookeeper-server-stop.sh'
+vagrant ssh zookeeper6 -c '/vagrant/scripts/zookeeper.sh'
